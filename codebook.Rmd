@@ -1,4 +1,3 @@
-
 ---
 title: "codebook for Getting and Cleaning Data Project"
 author: "Mark Fischer"
