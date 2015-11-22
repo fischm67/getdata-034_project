@@ -7,10 +7,6 @@ output:
     keep_md: yes
 ---
 
-```{r, echo=FALSE}
-summary(cars)
-```
-
 ## Project Description
 Create an initial dataset, from which a tidy data set will be created.  The creation of the initial dataset will complete the following tasks, not necessarily in this order:  
 &nbsp;&nbsp;&nbsp;&nbsp;1. Merges the training and test data to create one data set.  
@@ -55,55 +51,79 @@ tiny_data.txt includes all relevant variables that contain either "mean" or "std
   - The body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tbodyaccjerk(xyz)mean(std) and tbodygyrojerk(xyz)mean(std)). Also the magnitude of these 3-dimensional signals were calculated using the Euclidean norm (tbodyaccmagmean(std), tgravityaccmagmean(std), tbodyaccjerkmagmean(std), tbodygyromagmean(std), tbodygyrojerkmagmean(std)).
   - A fast fourier transform (FFT) was applied to some of the signals producing (prefix 'f') fbodyacc(xyz)mean(std), fbodyaccjerk(xyz)mean(std), fbodygyro(xyz)mean(std), fbodyaccjerkmagmean(std), fbodygyromagmean(std), fbodygyrojerkmagmean(std).
   - Variables contained in the dataset are:  
-&nbsp;&nbsp;&nbsp;&nbsp;1. group  
-&nbsp;&nbsp;&nbsp;&nbsp;2. subject  
-&nbsp;&nbsp;&nbsp;&nbsp;3. activity  
+&nbsp;&nbsp;&nbsp;&nbsp;1. subject  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. variables: 1-30  
+&nbsp;&nbsp;&nbsp;&nbsp;2. activity  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. variables: LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS  
+&nbsp;&nbsp;&nbsp;&nbsp;3. group  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. variables: test, train  
 &nbsp;&nbsp;&nbsp;&nbsp;4. tbodyacc(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from accelerometer 3-axial raw signals tAcc-XYZ  
 &nbsp;&nbsp;&nbsp;&nbsp;5. tgravityacc(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from accelerometer 3-axial raw signals tAcc-XYZ. Gravity component is represented by the low-pass filtered signal.  
 &nbsp;&nbsp;&nbsp;&nbsp;6. tbodyaccjerk(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from body linear acceleration derived in time  
 &nbsp;&nbsp;&nbsp;&nbsp;7. tbodygyro(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from accelerometer 3-axial raw signals tGyro-XYZ  
 &nbsp;&nbsp;&nbsp;&nbsp;8. tbodygyrojerk(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from body angular velocity derived in time  
 &nbsp;&nbsp;&nbsp;&nbsp;9. tbodyaccmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from tAcc-XYZ using Euclidean norm  
 &nbsp;&nbsp;&nbsp;&nbsp;10. tgravityaccmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from tAcc-XYZ using Euclidean norm.  Gravity component is represented by the low-pass filtered signal.  
 &nbsp;&nbsp;&nbsp;&nbsp;11. tbodyaccjerkmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from tAcc-XYZ using Euclidean norm  
 &nbsp;&nbsp;&nbsp;&nbsp;12. tbodygyromag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from tGyro-XYZ using Euclidean norm  
 &nbsp;&nbsp;&nbsp;&nbsp;13. tbodygyrojerkmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable from tGyro-XYZ using Euclidean norm  
 &nbsp;&nbsp;&nbsp;&nbsp;14. fbodyacc(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz)  
 &nbsp;&nbsp;&nbsp;&nbsp;15. fbodyaccmeanfreq(xyz) mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz).  Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;16. fbodyaccjerk(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz) derived wrt to time.  
 &nbsp;&nbsp;&nbsp;&nbsp;17. fbodyaccjerkmeanfreq(xyz) mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz) derived wrt to time.  Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;18. fbodygyro(xyz) mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodygyro(xyz).  
 &nbsp;&nbsp;&nbsp;&nbsp;19. fbodygyromeanfreq(xyz) mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodygyro(xyz).  Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;20. fbodyaccmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz).  Mag was computed utilizing the Euclidean norm  
 &nbsp;&nbsp;&nbsp;&nbsp;21. fbodyaccmagmeanfreq mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz).  Mag was computed utilizing the Euclidean norm. Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;22. fbodyaccjerkmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz) derived wrt to time.  Mag was computed utilizing the Euclidean norm.  
 &nbsp;&nbsp;&nbsp;&nbsp;23. fbodyaccjerkmagmeanfreq mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodyacc(xyz) derived wrt to time.  Mag was computed utilizing the Euclidean norm. Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;24. fbodygyromag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodygyro(xyz).  Mag was computed utilizing the Euclidean norm  
 &nbsp;&nbsp;&nbsp;&nbsp;25. fbodygyromagmeanfreq mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodygyro(xyz).  Mag was computed utilizing the Euclidean norm.  Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;26. fbodygyrojerkmag mean and std  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodygyro(xyz) derived wrt to time.  Mag was computed utilizing the Euclidean norm.  
 &nbsp;&nbsp;&nbsp;&nbsp;27. fbodygyrojerkmagmeanfreq mean  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable using a FFT applied to tbodygyro(xyz) derived wrt to time.  Mag was computed utilizing the Euclidean norm.  Meanfreq is the weighted average of the frequency components to obtain a mean frequency  
 &nbsp;&nbsp;&nbsp;&nbsp;28. angletbodyaccmeangravity  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable by averaging the tri-axial signals in a signal window sample for tbodyacc(xyz). Gravity component is represented by the low-pass filtered signal.  
 &nbsp;&nbsp;&nbsp;&nbsp;29. angletbodyaccjerkmeangravity  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable by averaging the tri-axial signals in a signal window sample for tbodyacc(xyz) derived wrt to time. Gravity component is represented by the low-pass filtered signal.  
 &nbsp;&nbsp;&nbsp;&nbsp;30. angletbodygyromeangravity  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable by averaging the tri-axial signals in a signal window sample for tbodygyro(xyz). Gravity component is represented by the low-pass filtered signal.  
 &nbsp;&nbsp;&nbsp;&nbsp;31. angletbodygyrojerkmeangravity  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable by averaging the tri-axial signals in a signal window sample for tbodygyro(xyz) derived wrt to time. Gravity component is represented by the low-pass filtered signal.  
 &nbsp;&nbsp;&nbsp;&nbsp;32. angle(xyz)gravity mean
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. computed variable by averaging the tri-axial signals in a signal window sample. Gravity component is represented by the low-pass filtered signal.  
   - Notes:  
-&nbsp;&nbsp;&nbsp;&nbsp;- Features are normalized and bounded within [-1,1].  
+&nbsp;&nbsp;&nbsp;&nbsp;- All computed variables are normalized and bounded within [-1,1].  
 &nbsp;&nbsp;&nbsp;&nbsp;- Each feature vector is a row on the text file.  
 &nbsp;&nbsp;&nbsp;&nbsp;- The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).  
 &nbsp;&nbsp;&nbsp;&nbsp;- The gyroscope units are rad/seg.  
 &nbsp;&nbsp;&nbsp;&nbsp;- The jerk construct of a variable is the derivative of acceleration with respect to time.  
 
-###Variable 1 (repeat this section for all variables in the dataset)
-Short description of what the variable describes.
-
-Some information on the variable including:
- - Class of the variable
- - Unique values/levels of the variable
- - Unit of measurement (if no unit of measurement list this as well)
- - In case names follow some schema, describe how entries were constructed (for example time-body-gyroscope-z has 4 levels of descriptors. Describe these 4 levels). 
-
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
 ##Sources
-Sources you used if any, otherise leave out.
+Sources of data come from the UCI HAR Dataset website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones  
+References for the style and content of this CodeBook are as follows:  
+&nbsp;&nbsp;&nbsp;&nbsp;1. DSS Discussion Forum, Getting and Cleaning Data, 18 Months of CTA advice. [http://datasciencespecialization.github.io/getclean/]()  
+&nbsp;&nbsp;&nbsp;&nbsp;2. Various threads in the class Discussion Forums  
