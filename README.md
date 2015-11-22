@@ -29,4 +29,4 @@ The scope of the project required the accessing of the various data files from t
 ##### &nbsp;&nbsp;&nbsp;&nbsp;6. assemble's the combined test and train datasets with the subject, activity, and group columns added as the first three columns in the combined data.frame.
 ##### &nbsp;&nbsp;&nbsp;&nbsp;7. use the group_by and summarise_each commands from the dplyr package to create the tidy_data table. write.table is used to send out the final "tidy_data.txt" file
   
-For a more detailed description of the dataset please see the CodeBook.md file in the same Git repository.
+For a more detailed description of the dataset please see the CodeBook.md file in the same GitHub repository.
