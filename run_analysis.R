@@ -53,6 +53,7 @@ train_final <- bind_cols(train_front, train_dat)                             ## 
 full_dat <- suppressWarnings(bind_rows(test_final, train_final))             ## combine test and train datasets for complete tidy data set
 fulldatcols <- colnames(full_dat)                                            ## extract col names for clean-up
 clean_cols <- tolower(gsub("([[:punct:]])", "", fulldatcols))                ## clean col names
+clean_cols <- gsub("bodybody", "body", clean_cols)                           ## remove the bodybody in column names and replace with body
 setnames (full_dat, fulldatcols, clean_cols)                                 ## assign cleaned up column names to tidy data set
 
 tidy_data <- full_dat %>%
