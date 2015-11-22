@@ -25,8 +25,8 @@ The scope of the project required the accessing of the various data files from t
 ##### &nbsp;&nbsp;&nbsp;&nbsp;3. I manipulated the data for the train and test data independently.  I did this to add a group column labelled with either train or test.  I have found the more information you can maintain for future use the less you have to recreate later.  The addition of the group column does not change any of the final tidy data set results.
 ##### &nbsp;&nbsp;&nbsp;&nbsp;3. extract the correct column names from the features.txt file and replace into the train and test data sets
 ##### &nbsp;&nbsp;&nbsp;&nbsp;4. utilize the select command from the data.table package to choose any column which contains either "mean" or "std".  I did choose to keep all of the columns with mean or std including all of the angle and meanFreq variables.  It is then left to the user of the data to utilize the information most relevant to their analysis.
-##### &nbsp;&nbsp;&nbsp;&nbsp;5. use mutate to create a assign the activity based on the integer value from the y_test.txt and y_train.txt files.  The actual activity values are coerced out of the activity_labels.txt file.
-##### &nbsp;&nbsp;&nbsp;&nbsp;6. assemble's the combined test and train datasets with the subject, activity, and group columns added as the first three columns in the combined data.frame.
+##### &nbsp;&nbsp;&nbsp;&nbsp;5. use mutate to create and assign the activity based on the integer value from the y_test.txt and y_train.txt files.  The actual activity values are coerced out of the activity_labels.txt file.
+##### &nbsp;&nbsp;&nbsp;&nbsp;6. assemble the combined test and train datasets with the subject, activity, and group columns added as the first three columns in the combined data.frame.
 ##### &nbsp;&nbsp;&nbsp;&nbsp;7. use the group_by and summarise_each commands from the dplyr package to create the tidy_data table. write.table is used to send out the final "tidy_data.txt" file
   
 For a more detailed description of the dataset please see the CodeBook.md file in the same GitHub repository.
