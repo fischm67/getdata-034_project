@@ -20,7 +20,7 @@ If you would like more information on the dataset please reference the README.tx
   
 The scope of the project required the accessing of the various data files from the UCI HAR Dataset folder with the end result being a tidy data set of the means for each mean or std variable grouped by the subject and activity.  I outline the overall structure of the script below:  
   
-##### &nbsp;&nbsp;&nbsp;&nbsp;1. install the needed libraries to execute the script code
+##### &nbsp;&nbsp;&nbsp;&nbsp;1. install the needed packages to execute the script code
 ##### &nbsp;&nbsp;&nbsp;&nbsp;2. utilize the fread command from the data.table package to read in all relevant data files from the UCI HAR Dataset folder
 ##### &nbsp;&nbsp;&nbsp;&nbsp;3. I manipulated the data for the train and test data independently.  I did this to add a group column labelled with either train or test.  I have found the more information you can maintain for future use the less you have to recreate later.  The addition of the group column does not change any of the final tidy data set results.
 ##### &nbsp;&nbsp;&nbsp;&nbsp;3. extract the correct column names from the features.txt file and replace into the train and test data sets
